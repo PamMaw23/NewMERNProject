@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const {Server} = require('socket.io');
+const http = require('http');
 const cors = require('cors');
 
 const app = express();
 const port = 8000;
-const io = new Server({
+const server = http.createServer(app);
+const io = new Server( server, {
     cors: true
 });
 
@@ -29,6 +31,10 @@ io.on('connection', (socket)=>{
         socket.join(roomId);
         socket.emit('joined-room', {roomId});
         socket.broadcast.to(roomId).emit('user-joined', {emailId});
+    });
+
+    socket.on("send-message", (data)=>{
+        socket.broadcast.emit("receive-message", data);
     });
 
     socket.on('call-user', data =>{

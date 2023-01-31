@@ -1,5 +1,6 @@
 import {useSocket} from "../providers/Socket";
 import {useEffect, useCallback, useState} from 'react';
+import Chat from '../components/Chat';
 import ReactPlayer from 'react-player';
 import { usePeer } from "../providers/Peer";
 
@@ -88,11 +89,25 @@ const RoomPage = ()=>{
 
     return(
         <div className='roomPage-container'>
-            <h1>Room Page</h1>
-            <h4>You are connected to {remoteEmailId}</h4>
-            <button onClick={(e)=> sendStream(myStream)} >Send My Video</button>
-            <ReactPlayer url={myStream} playing muted/>
-            <ReactPlayer url={remoteStream} playing muted/>
+            <span className='bub a'></span>
+            <span className='bub b'></span>
+            <span className='bub c'></span>
+            <span className='bub d'></span>
+            <span className='bub e'></span>
+            <span className='bub f'></span>
+            <span className='bub g'></span>
+            <span className='bub h'></span>
+            <span className='bub i'></span>
+            <span className='bub j'></span>
+            <div className="vid-container">
+                <h1 className='side'>Room Page</h1>
+                <h4 className='side'>You are connected to {remoteEmailId}</h4>
+                <button className='side' onClick={(e)=> sendStream(myStream)} >Send My Video</button>
+                <ReactPlayer url={myStream} playing muted/>
+                <ReactPlayer url={remoteStream} playing muted/>
+                <Chat />
+            </div>
+            
         </div>
     )
 }

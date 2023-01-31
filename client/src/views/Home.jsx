@@ -1,6 +1,8 @@
 import { useSocket } from "../providers/Socket";
 import {useNavigate} from 'react-router-dom';
 import {useState, useEffect, useCallback} from 'react';
+import homeImage from "../images/gatherly_one.jpg";
+
 const HomePage= (props)=>{
     const {socket} = useSocket();
     const navigate = useNavigate();
@@ -28,7 +30,10 @@ const HomePage= (props)=>{
             <div className="input-container">
                 <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter your email here"/>
                 <input value={roomId} onChange={(e)=>setRoomId(e.target.value)} type="text" placeholder="Enter Meeting Code"/>
-                <button onClick={handleJoinRoom}>Enter Meeting Room</button>
+                <button className="meeting" onClick={handleJoinRoom}>Enter Meeting Room</button>
+            </div>
+            <div>
+            <img className="home-image" src={homeImage} alt="Logo" />
             </div>
         </div>
     )

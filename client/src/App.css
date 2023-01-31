@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.input-container{
+    margin-right: 200px;
+}
+
 .homePage-container .input-container input{
     font-size:24px;
     display: block;
@@ -25,3 +29,189 @@
     border-radius: 12px;
 }
 
+.roomPage-container{
+    margin:0px;
+    padding: 0px;
+    background-color: rgb(3, 173, 173);
+    width:100%;
+    height:100%;
+}
+
+.meeting{
+    background-color: rgb(120, 168, 168);
+}
+
+.vid-container{
+    margin-left :150px;
+    margin-right :150px;
+    background-color: white;
+    width:80%;
+    height:80%;
+}
+
+.side{
+    margin-left: 80px;
+}
+
+button{
+    margin-bottom: 50px;;
+}
+
+.bub {
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    box-shadow: inset 5px -5px 10px white;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .01);
+    backdrop-filter: blur(2px);
+    position: absolute;
+    bottom: -100px;
+    /* animation: bubble 3s ease-in infinite; */
+}
+
+.bub::before {
+    position: absolute;
+    content: "";
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 25px;
+    right: 23px;
+    box-shadow: 0px 0px 20px white;
+}
+
+.bub.a {
+    left: 10%;
+    animation: bubble2 2s ease-in 1s infinite;
+}
+
+.bub.b {
+    left: 90%;
+    animation: bubble 1.5s ease-in 1.4s infinite;
+}
+
+.bub.c {
+    left: 95%;
+    animation: bubble 5s ease-in 3.8s infinite;
+}
+
+.bub.d {
+    left: 97%;
+    animation: bubble 1.8s ease-in .5s infinite;
+}
+
+.bub.e {
+    left: 4%;
+    animation: bubble2 2.3s ease-in 2.5s infinite;
+}
+
+.bub.f {
+    left: 5%;
+    animation: bubble 2.5s ease-in 3s infinite;
+}
+
+.bub.g {
+    left: 8%;
+    animation: bubble 2.2s ease-in 2s infinite;
+}
+
+.bub.k {
+    left: 7%;
+    animation: bubble 1.6s ease-in 2s infinite;
+}
+
+.bub.i {
+    left: 91%;
+    animation: bubble2 1.8s ease-in 2.1s infinite;
+}
+
+.bub.j {
+    left: 3%;
+    animation: bubble 2s ease-in 1.5s infinite;
+}
+
+.bub.h {
+    left: 1%;
+    animation: bubble2 3s ease-in infinite;
+}
+
+@keyframes bubble {
+    0% {
+        opacity: 0;
+    }
+    10%,
+    93% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(90px, -700px);
+        display: none;
+    }
+}
+
+@keyframes bubble2 {
+    0% {
+        opacity: 0;
+    }
+    10%,
+    93% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-90px, -700px);
+        display: none;
+    }
+}
+
+.logo{
+    width:100px;
+    height:90px;
+    /* margin-left:140px; */
+}
+
+.navbar{
+    background-color: rgb(3, 173, 173);
+    /* padding-right:150px;
+    padding-left:150px; */
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.nav-bar{
+    background-color: rgb(14, 152, 152);
+     padding-right:150px;
+    padding-left:150px;
+    
+}
+
+.nav-welcome{
+    margin-right:50px;
+    margin-left:50px;
+}
+
+.nav-signUp{
+    margin-right:50px;
+    margin-left:50px;
+}
+
+.nav-resources{
+    margin-right:150px;
+    margin-left:50px;
+}
+
+.back{
+    margin-right:100px;
+    margin-left:50px;
+    /* margin-top:20px; */
+}
+
+/* .logout{
+    margin-top:20px;
+} */
+
+.home-image{
+    width:600px;
+    height:600px;
+}
