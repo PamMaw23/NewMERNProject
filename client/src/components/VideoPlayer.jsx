@@ -3,6 +3,8 @@ import { Grid, Typography, Paper} from '@mui/material';
 import { makeStyles } from "tss-react/mui";
 import { SocketContext } from '../Context';
 import Chat from '../components/Chat';
+import Sidebar from '../components/Sidebar';
+import Notifications from './Notifications';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +53,9 @@ const VideoPlayer = () => {
             )}
           </Grid>
       </div>
+      <Sidebar>
+          <Notifications />
+        </Sidebar>
       <Chat />
     </div>
   );
