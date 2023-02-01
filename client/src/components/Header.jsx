@@ -1,7 +1,20 @@
 import logoImage from "../images/logo.jpg";
 import {Link} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 const Header = (props) => {
+	const navigate = useNavigate();
+	const logoutHandler = (e)=>{
+        axios.get('http://localhost:8000/api/logout', {withCredentials:true})
+        .then(res=>{
+            navigate("/login")
+
+        })
+        .catch(err=>{console.log(err.response)})
+
+    }
+
     return(
         <div>
             {/* <img className="logo" src={logoImage} alt="Logo" /> */}
@@ -19,7 +32,7 @@ const Header = (props) => {
                                         <li className="nav-resources">Resources</li>
 									</ul>
 									<Link className="link" to={"/"}><button className=" back btn btn-primary" >Back</button></Link>
-									<button  type="submit"  className=" logout btn btn-primary">Logout</button>
+									<button className="btn btn-primary" onClick={logoutHandler}>Logout</button>
 								</div>
 						</div>
 					</div>
