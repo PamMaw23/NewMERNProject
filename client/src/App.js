@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography, AppBar } from "@mui/material";
 import HomePage from './views/HomePage';
+import ProfilePage from './components/ProfilePage';
 import { makeStyles } from "tss-react/mui";
 import {Routes, Route} from "react-router-dom";
 import VideoPlayer from './components/VideoPlayer';
@@ -38,7 +38,7 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <div className='.roomPage-container'>
+    <div className='roomPage-container'>
       <div className={classes.wrapper}>
         <span className='bub a'></span>
         <span className='bub b'></span>
@@ -50,19 +50,13 @@ const App = () => {
         <span className='bub h'></span>
         <span className='bub i'></span>
         <span className='bub j'></span>
-        {/* <AppBar className={classes.appBar} position="static" color="inherit">
-          <Typography variant="h2" align="center">Header</Typography>
-        </AppBar> */}
         <Header />
-        <HomePage />
-        {/* <AppBar className={classes.appBar} position="static" color="inherit">
-          <Typography variant="h2" align="center">Footer</Typography>
-        </AppBar> */}
       </div>
       <Routes>
-        <Route element={VideoPlayer} path="/start/meeting"/>
-        {/* <Route element={LoginReg} path="/create/profile"/>
-        <Route element={ProfilePage} path="/view/profile"/> */}
+      <Route element={<HomePage/>} path="/"/>
+        <Route element={<VideoPlayer/>} path="/start/meeting"/>
+        {/* <Route element={LoginReg} path="/create/profile"/> */}
+        <Route element={ProfilePage} path="/view/profile"/>
       </Routes>
     </div>
   );

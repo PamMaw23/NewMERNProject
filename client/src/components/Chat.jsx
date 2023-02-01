@@ -1,7 +1,7 @@
 import io from 'socket.io-client';
 import {useEffect, useState} from 'react';
 
-const socket = io.connect("http://localhost:8001");
+const socket = io.connect("http://localhost:8000");
 
 const Chat = (props) => {
     const [message, setMessage] = useState("");
@@ -22,7 +22,8 @@ const Chat = (props) => {
       }, [socket, messages]);
 
     return(
-        <div>
+        <div className="chat">
+            <h1>Chat</h1>
             <input placeholder="Name..." value={name} onChange={(event)=>{
             setName(event.target.value);
             }}/>
@@ -30,7 +31,6 @@ const Chat = (props) => {
             setMessage(event.target.value);
             }}/>
             <button onClick={sendMessage}>Send Message</button>
-            <h1>Messages:</h1>
             {messages.map((message, index) => (
             <p key={index}>{message.name}: {message.message}</p>
             ))}

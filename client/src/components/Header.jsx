@@ -1,4 +1,5 @@
 import logoImage from "../images/logo.jpg";
+import {Link} from "react-router-dom";
 
 const Header = (props) => {
     return(
@@ -16,7 +17,7 @@ const Header = (props) => {
 										<li className="nav-signUp">Sign up for free</li>
                                         <li className="nav-resources">Resources</li>
 									</ul>
-									<button className=" back btn btn-primary" >Back</button>
+									<Link className="link" to={"/"}><button className=" back btn btn-primary" >Back</button></Link>
 									<button  type="submit"  className=" logout btn btn-primary">Logout</button>
 								</div>
 						</div>
