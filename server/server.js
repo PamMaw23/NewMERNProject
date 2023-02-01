@@ -1,19 +1,23 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
+const port = 8000;
 const {Server} = require('socket.io');
 const cors = require('cors');
 require('dotenv').config({path:"hidden.env"});
-
-
 const app = express();
 const cookieParser = require('cookie-parser');
-app.use(cookieParser());
-const port = 8000;
-const io = new Server({
-    cors: true
+const server = require("http").createServer(app);
+
+
+const io = require("socket.io")(server, {
+	cors: {
+		origin: "*",
+		methods: [ "GET", "POST" ]
+	}
 });
 
-// require('./server/config/mongoose.config');
+app.use(cookieParser());
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -21,38 +25,29 @@ require("./config/mongoose.config");
 require('../server/routes/user.routes')(app);
 app.use(bodyParser.json());
 
-const emailToSocketMapping = new Map();
-const socketToEmailMapping = new Map();
-
-io.on('connection', (socket)=>{
-    console.log("New Connection");
-    socket.on("join-room", (data)=>{
-        const{roomId, emailId} = data;
-        console.log('User', emailId, 'Joined Room', roomId);
-        emailToSocketMapping.set(emailId, socket.id);
-        socketToEmailMapping.set(socket.id, emailId);
-        socket.join(roomId);
-        socket.emit('joined-room', {roomId});
-        socket.broadcast.to(roomId).emit('user-joined', {emailId});
-    });
-
-    socket.on('call-user', data =>{
-        const { emailId, offer} = data;
-        const fromEmail = socketToEmailMapping.get(socket.id);
-        const socketId = emailToSocketMapping.get(emailId);
-        socket.to(socketId).emit('incoming-call', { from: fromEmail, offer})
-    });
-
-    socket.on('call-accepted', data =>{
-        const {emailId, ans} = data;
-        const socketId = emailToSocketMapping.get(emailId);
-        socket.to(socketId). emit('call-accepted', {ans});
-    })
+app.get('/', (req, res) => {
+	res.send('Server is running');
 });
-    
-app.listen(port, () => console.log(`Listening on port: ${port}`) );
-io.listen(8001,()=>console.log("listening on io port"));
 
 
-//the following line has been replaced in the package.json file with line 7
-// "test": "echo \"Error: no test specified\" && exit 1"
+io.on("connection", (socket) => {
+	socket.emit("me", socket.id);
+
+	socket.on("disconnect", () => {
+		socket.broadcast.emit("callEnded")
+	});
+
+	socket.on("callUser", ({ userToCall, signalData, from, name }) => {
+		io.to(userToCall).emit("callUser", { signal: signalData, from, name });
+	});
+
+	socket.on("answerCall", (data) => {
+		io.to(data.to).emit("callAccepted", data.signal)
+	});
+
+    socket.on("send-message", (data)=>{
+        socket.broadcast.emit("receive-message", data);
+    });
+});
+
+server.listen(port, () => console.log(`Server is running on port ${port}`));
