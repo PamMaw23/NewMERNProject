@@ -5,7 +5,7 @@ const socket = io.connect("http://localhost:8000");
 
 const Chat = (props) => {
     const [message, setMessage] = useState("");
-    const [messageReceived, setMessageReceived] = useState("");
+    // const [messageReceived, setMessageReceived] = useState("");
     const [name, setName] = useState("");
     const [messages, setMessages] = useState([]);
 
@@ -19,7 +19,7 @@ const Chat = (props) => {
         socket.on("receive-message", (data)=>{
           setMessages([...messages, data]);
         })
-      }, [socket, messages]);
+      }, [messages]);
 
     return(
         <div className="chat">

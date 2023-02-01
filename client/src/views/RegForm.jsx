@@ -1,9 +1,9 @@
 import axios from 'axios'
-const { useState } = require("react")
+import {useNavigate} from 'react-router-dom';
 
-
-
+const { useState } = require("react");
 const RegForm = () => {
+    const navigate = useNavigate();
     const [firstname, setFirstName] = useState("");
     const [lastname, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -21,6 +21,7 @@ const RegForm = () => {
             setEmail("")
             setPassword("")
             setConfirmPassword("")
+            navigate("/")
         })
             .catch(err => { console.log(err) })
     }

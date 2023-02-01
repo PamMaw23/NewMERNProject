@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from '@mui/material';
 import { SocketContext } from '../Context';
+// import {useDropzone} from 'react-dropzone';
 
 const Notifications = () => {
     const { answerCall, call, callAccepted } = useContext(SocketContext);

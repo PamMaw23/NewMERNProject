@@ -25,7 +25,7 @@ const LoginForm = (props) => {
         e.preventDefault()
         axios.post('http://localhost:8000/api/login', log, { withCredentials: true })
             .then(res => {
-                // console.log(log)
+                navigate("/")
             })
             .catch(err => { console.log(err.response) })
     }

@@ -14,7 +14,8 @@ const Header = (props) => {
 								<div className="collapse navbar-collapse d-flex" id="navbarNavDropdown">
 									<ul className="navbar-nav">
 										<li className="nav-welcome">Welcome User!</li>
-										<li className="nav-signUp">Sign up for free</li>
+										<Link className="link" to={"/register"}><li className="nav-signUp">Sign up for free</li></Link>
+										<Link className="link" to={"/login"}><li className="nav-signUp">Login</li></Link>
                                         <li className="nav-resources">Resources</li>
 									</ul>
 									<Link className="link" to={"/"}><button className=" back btn btn-primary" >Back</button></Link>

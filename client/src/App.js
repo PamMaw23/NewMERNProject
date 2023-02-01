@@ -40,8 +40,6 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
-
-function App() {
   const [log , setLog] = useState("");
 
   return (
@@ -60,7 +58,7 @@ function App() {
         <Header />
       </div>
       <Routes>
-      <Route element={<HomePage/>} path="/"/>
+        <Route element={<HomePage/>} path="/"/>
         <Route element={<VideoPlayer/>} path="/start/meeting"/>
         <Route path='/login' element={<LoginForm setLogged/>}/>
         <Route path="/register" element={<RegForm/>}/>
@@ -69,5 +67,5 @@ function App() {
     </div>
   );
 };
-}
+
 export default App;
