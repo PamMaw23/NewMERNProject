@@ -23,7 +23,7 @@ const HomePage= (props)=>{
                 {/* Adam to work on styling of the pages */}
                 <Link className="link" to={"/start/meeting"}><button className="meeting">Start a Meeting</button></Link>
                 <Link className="link" to={"/start/meeting"}><button className="meeting">Enter Meeting</button></Link>
-                <Link className="link" to={"/create/profile"}><button className="meeting">Create a Profile</button></Link>
+                <Link className="link" to={"/register"}><button className="meeting">Create a Profile</button></Link>
                 <Link className="link" to={"/view/profile"}><button className="meeting">View Profile</button></Link>
             </div>
             <div>
