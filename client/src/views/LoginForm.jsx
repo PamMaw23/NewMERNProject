@@ -4,9 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const LoginForm = (props) => {
-    const { setLogged } = props;
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
     const navigate = useNavigate();
     const initialState = {
         email: "",
@@ -35,7 +32,7 @@ const LoginForm = (props) => {
         <div className="w-50 p-4 rounded mx-auto shadow">
             <h3>Login</h3>
             <form onSubmit={submitHandler}>
-                <div className="=form-group">
+                <div className="form-group">
                     <label className="h6">Email:</label>
                     <input
                         name='email'
@@ -43,9 +40,9 @@ const LoginForm = (props) => {
                         className='form-control'
                         onChange={
                             handleInputChange
-                        } value={email} />
+                        } value={log.email} />
                 </div>
-                <div className="=form-group">
+                <div className="form-group">
                     <label className="h6">Password:</label>
                     <input
                         name='password'
@@ -53,7 +50,7 @@ const LoginForm = (props) => {
                         className='form-control'
                         onChange={
                             handleInputChange
-                        } value={password} />
+                        } value={log.password} />
                 </div>
                 <input type="submit" className='btn btn-dark btn-outline-success' />
             </form>

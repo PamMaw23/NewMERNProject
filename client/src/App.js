@@ -10,6 +10,7 @@ import VideoPlayer from './components/VideoPlayer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import "./App.css";
+import Container from '../src/components/container/Container';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +57,9 @@ const App = () => {
         <span className='bub i'></span>
         <span className='bub j'></span>
         <Header />
+      </div>
+      <div>
+        <Container/>
       </div>
       <Routes>
         <Route element={<HomePage/>} path="/"/>
