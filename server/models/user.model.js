@@ -35,6 +35,10 @@ const UserSchema = new mongoose.Schema({
     //     // required:[if (userPassword != userConfirmPW)]
     //     minlength: [6, "Password longer than 5 characters"]
     // },
+    image: {
+        type: String,
+        },
+
 
 
 }, { timestamps: true });

@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
 import {useEffect, useState} from 'react';
+import ChatBubble from './ChatBubble';
 
 const socket = io.connect("http://localhost:8000");
 
@@ -22,18 +23,21 @@ const Chat = (props) => {
       }, [messages]);
 
     return(
-        <div className="chat">
-            <h1>Chat</h1>
+        <div className="chat w-75 p-4 rounded mx-auto shadow">
+            <h1 className="chat-top">Chat</h1>
             <input placeholder="Name..." value={name} onChange={(event)=>{
             setName(event.target.value);
             }}/>
-            <input placeholder="Message..." value={message} onChange={(event)=>{
+            <input className="input2" placeholder="Message..." value={message} onChange={(event)=>{
             setMessage(event.target.value);
             }}/>
-            <button onClick={sendMessage}>Send Message</button>
+            <button className="send" onClick={sendMessage}>Send Message</button>
             {messages.map((message, index) => (
-            <p key={index}>{message.name}: {message.message}</p>
+              <ChatBubble key={index} name={message.name} message={message.message} />
             ))}
+            {/* {messages.map((message, index) => (
+            <p key={index}>{message.name}: {message.message}</p>
+            ))} */}
         </div>
     )
 

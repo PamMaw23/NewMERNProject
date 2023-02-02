@@ -32,7 +32,7 @@ const VideoPlayer = () => {
     const classes = useStyles();
 
     return (
-        <div >
+        <div>
             <div className="video backPage-container">
                 <Grid container className={classes.gridContainer}>
                     {stream && (
@@ -55,10 +55,12 @@ const VideoPlayer = () => {
                     )}
                 </Grid>
             </div>
-            <Sidebar className="backPage-container notifications">
-                <Notifications />
-            </Sidebar>
-            <Chat className=" backPage-container notifications" />
+            <div className="backPage-container notifications">
+                <Sidebar className="backPage-container notifications">
+                    <Notifications />
+                </Sidebar>
+                <Chat className=" backPage-container notifications" />
+            </div>
         </div>
     );
 };

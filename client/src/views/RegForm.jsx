@@ -1,18 +1,25 @@
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom';
+import ImageUpload from '../components/ImageUpload';
 
 const { useState } = require("react");
 const RegForm = () => {
+    
+
+    function handleImage(e){
+        setImage(e.target.files[0]);
+    }
     const navigate = useNavigate();
     const [firstname, setFirstName] = useState("");
     const [lastname, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [image, setImage] = useState('');
 
     const submitHandler = (e) => {
         e.preventDefault()
-        const newUser = { firstname, lastname, email, password, confirmPassword }
+        const newUser = { firstname, lastname, email, password, confirmPassword,image }
         axios.post('http://localhost:8000/api/register', newUser, { withCredentials: true })
         .then(res => {
             console.log(res)
@@ -21,6 +28,7 @@ const RegForm = () => {
             setEmail("")
             setPassword("")
             setConfirmPassword("")
+            setImage("");
             navigate("/")
         })
             .catch(err => { console.log(err) })
@@ -73,6 +81,14 @@ const RegForm = () => {
                         onChange={(e) =>
                             setConfirmPassword(e.target.value)
                         } value={confirmPassword} />
+                </div>
+                <div className=" profile-pic form-group">
+                    <label className="h6">Profile Image:</label>
+                    <input
+                        type="file"
+                        className='form-control'
+                        onChange={handleImage}
+                    />
                 </div>
                 <input type="submit" className='btn btn-dark btn-outline-success' />
             </form>

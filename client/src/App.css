@@ -33,9 +33,9 @@
     background-color: rgb(3, 173, 173, 0.65);
 }
 
-.meeting{
-    background-color: rgb(120, 168, 168);
-}
+/* .meeting{
+    
+} */
 
 .link{
     text-decoration: none;
@@ -46,7 +46,13 @@
 }
 
 .chat{
+    background-color: white;
     margin-left:183px;
+    width: 1500px;
+}
+
+.profile-pic{
+    margin-bottom:20px;
 }
 
 .video{
@@ -61,12 +67,41 @@
     height:80%;
 }
 
+.chat-top {
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+    }
+
+input {
+    border-radius: 10px;
+    
+    }
+
+.input2{
+    width:600px;
+    margin-left:30px;
+}
+
+.send{
+    border-radius: 10px;
+    margin-left:20px;
+    }
 .side{
     margin-left: 80px;
 }
 
 button{
-    margin-bottom: 50px;;
+    margin-bottom: 50px;
+    background-color: rgb(120, 168, 168);
+}
+
+body .btn-outline-light{
+    background-color: rgb(107, 75, 252);
+    color:rgb(251, 250, 251);
 }
 
 .bub {
@@ -226,4 +261,32 @@ button{
 .home-image{
     width:600px;
     height:600px;
+}
+
+.chat-bubble-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.chat-bubble-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.chat-bubble {
+    background-color: #f1adf5;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.chat-bubble::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 100%;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #f1adf5;
+    border-bottom: 10px solid transparent;
 }

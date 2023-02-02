@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
 import HomePage from './views/HomePage';
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from './components/ImageUpload';
 import LoginForm from './views/LoginForm';
 import RegForm from './views/RegForm';
 import { makeStyles } from "tss-react/mui";
@@ -10,6 +10,9 @@ import VideoPlayer from './components/VideoPlayer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import "./App.css";
+import {useNavigate} from 'react-router-dom';
+import alanBtn from "@alan-ai/alan-sdk-web";
+import { useEffect, useRef, } from 'react';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +43,37 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const alanBtnRef = useRef({}).current;
   const [log , setLog] = useState("");
+
+
+  useEffect(() => {
+    const alanKey = '3f79885a4b3f4fdfea6b1dda3896958e2e956eca572e1d8b807a3e2338fdd0dc/stage'
+    alanBtn({
+      key: alanKey,
+      onCommand: (commandData) => {
+        if (commandData.command === 'goBack') {
+          // something to happen
+          alert("Going back");
+          navigate("/");
+        }else if (commandData.command === 'startMeeting'){
+          // else if (commandData.command === 'signUp'){
+          // alert("Going to sign up page");
+          navigate("/start/meeting");
+        }else if (commandData.command === 'enterMeeting'){
+          // alert("Entering a new meeting");
+          navigate("/start/meeting");
+        }else if (commandData.command === 'signUp'){
+          // alert("Going to sign up page");
+          navigate("/register");
+        }else if (commandData.command === 'login'){
+          // alert("Going to sign up page");
+          navigate("/login");
+        }
+      },
+    });
+  }, [navigate]);
 
   return (
     <div className='roomPage-container'>
@@ -64,6 +97,14 @@ const App = () => {
         <Route path="/register" element={<RegForm/>}/>
         <Route element={ProfilePage} path="/view/profile"/>
       </Routes>
+      <button onClick={() => {
+        alanBtnRef.btnInstance.callProjectApi("setClientData", {value:"your data"}, function (error, result){
+          // handle error and result here
+        });
+        alanBtnRef.btnInstance.playText("Hi there, I am Alan");
+        alanBtnRef.btnInstance.sendText("Hello Alan, can you help me?");
+        alanBtnRef.btnInstance.playCommand({command: "goBack"});
+      }}></button>
     </div>
   );
 };
