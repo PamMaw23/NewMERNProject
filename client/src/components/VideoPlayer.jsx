@@ -5,7 +5,7 @@ import { SocketContext } from '../Context';
 import Chat from '../components/Chat';
 import Sidebar from '../components/Sidebar';
 import Notifications from './Notifications';
-
+import Container from './container/Container';
 
 const useStyles = makeStyles((theme) => ({
     video: {
@@ -32,13 +32,13 @@ const VideoPlayer = () => {
     const classes = useStyles();
 
     return (
-        <div>
+        <div className="videoBack">
             <div className="video backPage-container">
                 <Grid container className={classes.gridContainer}>
                     {stream && (
                         <div className="video">
                             <Paper  className={classes.paper}>
-                                <Grid item xs={12} md={6}>
+                                <Grid item xs={8} md={6} spacing={2}>
                                     <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
                                     <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
                                 </Grid>
@@ -47,7 +47,7 @@ const VideoPlayer = () => {
                     )}
                     {callAccepted && !callEnded && (
                         <Paper className={classes.paper}>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={8} md={6}>
                                 <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography>
                                 <video playsInline ref={userVideo} autoPlay className={classes.video} />
                             </Grid>
@@ -60,6 +60,9 @@ const VideoPlayer = () => {
                     <Notifications />
                 </Sidebar>
                 <Chat className=" backPage-container notifications" />
+            </div>
+            <div className="whiteboard">
+                <Container/>
             </div>
         </div>
     );

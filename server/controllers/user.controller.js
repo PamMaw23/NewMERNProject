@@ -11,6 +11,12 @@ module.exports = {
         
     },
 
+    getOne:(req, res) => {
+        User.findOne({_id: req.params.id})
+            .then(user => res.json(user))
+            .catch(err => res.status(400).json({message: "That did not work.", err}))
+    },
+
     register: (req, res) => {
         // console.log(req.body) 
         User.create(req.body)

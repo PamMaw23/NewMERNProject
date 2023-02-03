@@ -5,9 +5,38 @@
     justify-content:center;
     align-items: center;
 }
+body {
+    background-image: url(images/gatherly_one.jpg);
+    background-size: cover;
+    /* height: fit-content; */
+    background-repeat: no-repeat;
+    /* background-position: center; */
+}
 
 .input-container{
     margin-right: 200px;
+}
+
+.viewProfile-image{
+    margin-left:130px;
+    
+}
+
+.viewFont{
+    font-family: Georgia;
+    margin-right:300px;
+}
+
+.whiteboard{
+    /* margin-left:100px;
+    margin-right:100px; */
+    height:500px;
+    width:600px;
+}
+
+.more{
+    margin-bottom:50px;
+    text-decoration: underline;
 }
 
 .homePage-container .input-container input{
@@ -29,26 +58,54 @@
     border-radius: 12px;
 }
 
-.backPage-container{
+/* .backPage-container{
     background-color: rgb(3, 173, 173, 0.65);
+} */
+
+.meeting{
+    margin-bottom: 8px;
+    background: rgb(3, 173, 173, 0.65);
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 300;
+    font-size: 20px;
+    border: 0.5px solid black;
+    border-radius: 30px;
+    /* box-shadow: 0.1em 0.1em; */
 }
 
-/* .meeting{
+button:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+}
+
+button:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+    /* padding-right: 1000px; */
+    margin-right: 1px;
+    /* border: 2px solid white; */
+    /* text-decoration-color: white; */
+    margin-top: 20px;
+    /* background-color: rgb(232, 148, 235); */
     
-} */
+}
 
 .link{
     text-decoration: none;
 }
 
+.link
+
 .notifications{
     padding-top:40px;
+    width:1200px;
 }
 
 .chat{
     background-color: white;
-    margin-left:183px;
-    width: 1500px;
+    margin-left:180px;
+    width: 1150px;
 }
 
 .profile-pic{
@@ -57,6 +114,14 @@
 
 .video{
     padding-left:60px;
+}
+
+.videoBack{
+    background-color:paleturquoise;
+    padding-top:30px;
+}
+.thisOne{
+    width:2000px;
 }
 
 .vid-container{
@@ -154,7 +219,7 @@ body .btn-outline-light{
     animation: bubble2 2.3s ease-in 2.5s infinite;
 }
 
-.bub.f {
+/* .bub.f {
     left: 5%;
     animation: bubble 2.5s ease-in 3s infinite;
 }
@@ -182,7 +247,7 @@ body .btn-outline-light{
 .bub.h {
     left: 1%;
     animation: bubble2 3s ease-in infinite;
-}
+} */
 
 @keyframes bubble {
     0% {
@@ -215,11 +280,13 @@ body .btn-outline-light{
 .logo{
     width:100px;
     height:90px;
-    /* margin-left:140px; */
+    border-radius: 100%;
 }
 
 .navbar{
-    background-color: rgb(3, 173, 173);
+    color: rgb(145, 99, 15);
+    background-blend-mode: 0;
+    background-color:white;
     /* padding-right:150px;
     padding-left:150px; */
     padding-top:30px;
@@ -227,10 +294,38 @@ body .btn-outline-light{
 }
 
 .nav-bar{
-    background-color: rgb(14, 152, 152);
-     padding-right:150px;
+    /* rgb(231, 121, 18) */
+    background-blend-mode: 0;
+    border-radius: 30px;
+    background-color:white;
+    padding-right:150px;
     padding-left:150px;
-    
+}
+
+.nav-welcome{
+    margin-left: 72px;
+    font-family:Comic Sans MS;
+    color: black;
+    font-size: large;
+    /* text-decoration-color: rgb(255, 255, 255); */
+    margin-right:50px;
+    /* margin-left:50px; */
+}
+
+.nav-signUp{
+    font-family: Comic Sans MS;
+    color: black;
+    font-size: large;
+    margin-right:50px;
+    margin-left:50px;
+}
+
+.nav-resources{
+    font-family:Comic Sans MS;
+    color: black;
+    font-size: large;
+    margin-right:150px;
+    margin-left:50px;
 }
 
 .nav-welcome{

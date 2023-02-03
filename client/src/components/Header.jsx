@@ -31,8 +31,8 @@ const Header = (props) => {
 										<Link className="link" to={"/login"}><li className="nav-signUp">Login</li></Link>
                                         <li className="nav-resources">Resources</li>
 									</ul>
-									<Link className="link" to={"/"}><button className=" back btn btn-primary" >Back</button></Link>
-									<button className="btn btn-primary" onClick={logoutHandler}>Logout</button>
+									<Link className="link" to={"/"}><button className=" back btn btn-outline-info" >Back</button></Link>
+									<button className="btn btn-outline-info" onClick={logoutHandler}>Logout</button>
 								</div>
 						</div>
 					</div>

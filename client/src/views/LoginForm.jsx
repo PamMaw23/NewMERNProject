@@ -9,7 +9,6 @@ const LoginForm = (props) => {
         email: "",
         password: ""
     };
-    
     const [log, setLog] = useState(initialState);
 
     const handleInputChange = (e) => {
@@ -43,7 +42,7 @@ const LoginForm = (props) => {
                             handleInputChange
                         } value={log.email} />
                 </div>
-                <div className="form-group">
+                <div className=" profile-pic form-group">
                     <label className="h6">Password:</label>
                     <input
                         name='password'

@@ -11,7 +11,7 @@ const multer = require("multer");
 const fs = require("fs");
 const cookieParser = require('cookie-parser');
 const server = require("http").createServer(app);
-const imageModel = require("./models/image.model");
+
 
 
 const io = require("socket.io")(server, {
@@ -86,6 +86,9 @@ io.on("connection", (socket) => {
     socket.on("send-message", (data)=>{
         socket.broadcast.emit("receive-message", data);
     });
+	socket.on("canvas-data", (data)=>{
+		socket.broadcast.emit("canvas-data", data);
+	})
 });
 
 server.listen(port, () => console.log(`Server is running on port ${port}`));

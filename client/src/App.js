@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import React from 'react';
 import HomePage from './views/HomePage';
-import ProfilePage from './components/ImageUpload';
+import ViewProfile from './views/ViewProfile';
 import LoginForm from './views/LoginForm';
 import RegForm from './views/RegForm';
 import { makeStyles } from "tss-react/mui";
@@ -13,6 +13,7 @@ import "./App.css";
 import {useNavigate} from 'react-router-dom';
 import alanBtn from "@alan-ai/alan-sdk-web";
 import { useEffect, useRef, } from 'react';
+import UserContext from "./Context/UserContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,21 +42,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const App = () => {
+  const [storeUser, setStoreUser] = useState({});
   const classes = useStyles();
   const navigate = useNavigate();
   const alanBtnRef = useRef({}).current;
-  const [log , setLog] = useState("");
-
 
   useEffect(() => {
+    const loggedUser = JSON.parse(sessionStorage.getItem("storeUser"))
+    setStoreUser(loggedUser)
     const alanKey = '3f79885a4b3f4fdfea6b1dda3896958e2e956eca572e1d8b807a3e2338fdd0dc/stage'
     alanBtn({
       key: alanKey,
       onCommand: (commandData) => {
         if (commandData.command === 'goBack') {
           // something to happen
-          alert("Going back");
+          alert("Go back to the home page?");
           navigate("/");
         }else if (commandData.command === 'startMeeting'){
           // else if (commandData.command === 'signUp'){
@@ -77,34 +81,36 @@ const App = () => {
 
   return (
     <div className='roomPage-container'>
-      <div className={classes.wrapper}>
-        <span className='bub a'></span>
-        <span className='bub b'></span>
-        <span className='bub c'></span>
-        <span className='bub d'></span>
-        <span className='bub e'></span>
-        <span className='bub f'></span>
-        <span className='bub g'></span>
-        <span className='bub h'></span>
-        <span className='bub i'></span>
-        <span className='bub j'></span>
-        <Header />
-      </div>
-      <Routes>
-        <Route element={<HomePage/>} path="/"/>
-        <Route element={<VideoPlayer/>} path="/start/meeting"/>
-        <Route path='/login' element={<LoginForm setLogged/>}/>
-        <Route path="/register" element={<RegForm/>}/>
-        <Route element={ProfilePage} path="/view/profile"/>
-      </Routes>
-      <button onClick={() => {
-        alanBtnRef.btnInstance.callProjectApi("setClientData", {value:"your data"}, function (error, result){
-          // handle error and result here
-        });
-        alanBtnRef.btnInstance.playText("Hi there, I am Alan");
-        alanBtnRef.btnInstance.sendText("Hello Alan, can you help me?");
-        alanBtnRef.btnInstance.playCommand({command: "goBack"});
-      }}></button>
+      <UserContext.Provider value={{storeUser, setStoreUser}}>
+        <div className={classes.wrapper}>
+          <span className='bub a'></span>
+          <span className='bub b'></span>
+          <span className='bub c'></span>
+          <span className='bub d'></span>
+          <span className='bub e'></span>
+          <span className='bub f'></span>
+          <span className='bub g'></span>
+          <span className='bub h'></span>
+          <span className='bub i'></span>
+          <span className='bub j'></span>
+          <Header />
+        </div>
+        <Routes>
+          <Route element={<HomePage/>} path="/"/>
+          <Route element={<VideoPlayer/>} path="/start/meeting"/>
+          <Route path='/login' element={<LoginForm setLogged/>}/>
+          <Route path="/register" element={<RegForm/>}/>
+          <Route element={<ViewProfile/>} path="/view/profile/:id" />
+        </Routes>
+        {/* <button onClick={() => {
+          alanBtnRef.btnInstance.callProjectApi("setClientData", {value:"your data"}, function (error, result){
+            // handle error and result here
+          });
+          alanBtnRef.btnInstance.playText("Hi there, I am Alan");
+          alanBtnRef.btnInstance.sendText("Hello Alan, can you help me?");
+          alanBtnRef.btnInstance.playCommand({command: "goBack"});
+        }}></button> */}
+      </UserContext.Provider>
     </div>
   );
 };

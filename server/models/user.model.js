@@ -2,8 +2,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-
-
 const UserSchema = new mongoose.Schema({
     firstname: {
         type: String,
@@ -35,11 +33,10 @@ const UserSchema = new mongoose.Schema({
     //     // required:[if (userPassword != userConfirmPW)]
     //     minlength: [6, "Password longer than 5 characters"]
     // },
+    
     image: {
         type: String,
         },
-
-
 
 }, { timestamps: true });
 
