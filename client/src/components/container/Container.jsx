@@ -30,26 +30,9 @@ class Container extends React.Component
 
         return (
             <div className="container">
-                {/* <div class="tools-section">
-                    <div className=" brush color-picker-container">
-                        Select Brush Color : &nbsp; 
-                        <input type="color" value={this.state.color} onChange={this.changeColor.bind(this)}/>
-                    </div>
-                    <div className="brushsize-container">
-                        Select Brush Size : &nbsp; 
-                        <select value={this.state.size} onChange={this.changeSize.bind(this)}>
-                            <option> 5 </option>
-                            <option> 10 </option>
-                            <option> 15 </option>
-                            <option> 20 </option>
-                            <option> 25 </option>
-                            <option> 30 </option>
-                        </select>
-                    </div>
-                </div> */}
-
-                <div class="board-container">
-                    <div class="tools-section">
+                <div className="board-container p-4 rounded shadow">
+                <h1 className="chat-top">Whiteboard</h1>
+                    <div className="tools-section">
                         <div className=" brush color-picker-container">
                             Select Brush Color : &nbsp;
                             <input type="color" value={this.state.color} onChange={this.changeColor.bind(this)} />

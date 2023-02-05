@@ -23,9 +23,9 @@ const Chat = (props) => {
       }, [messages]);
 
     return(
-        <div className="chat p-4 rounded mx-auto shadow">
+        <div className="chat p-4 rounded shadow">
             <h1 className="chat-top">Chat</h1>
-            <input placeholder="Name..." value={name} onChange={(event)=>{
+            <input className="chat-name" placeholder="Name..." value={name} onChange={(event)=>{
             setName(event.target.value);
             }}/>
             <input className="input2" placeholder="Message..." value={message} onChange={(event)=>{

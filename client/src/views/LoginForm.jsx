@@ -46,7 +46,7 @@ const LoginForm = (props) => {
                     <label className="h6">Password:</label>
                     <input
                         name='password'
-                        type="text"
+                        type="password"
                         className='form-control'
                         onChange={
                             handleInputChange

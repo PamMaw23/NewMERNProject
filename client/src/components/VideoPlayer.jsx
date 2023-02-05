@@ -9,9 +9,9 @@ import Container from './container/Container';
 
 const useStyles = makeStyles((theme) => ({
     video: {
-        width: '550px',
+        width: '350px',
         [theme.breakpoints.down('xs')]: {
-            width: '300px',
+            width: '280px',
         },
     },
     gridContainer: {
@@ -33,7 +33,13 @@ const VideoPlayer = () => {
 
     return (
         <div className="videoBack">
-            <div className="video backPage-container">
+            <div className="notifications">
+                <Sidebar className="notifications">
+                    <Notifications />
+                </Sidebar>
+                {/* <Chat className="notifications" /> */}
+            </div>
+            <div className="video">
                 <Grid container className={classes.gridContainer}>
                     {stream && (
                         <div className="video">
@@ -55,14 +61,13 @@ const VideoPlayer = () => {
                     )}
                 </Grid>
             </div>
-            <div className="backPage-container notifications">
-                <Sidebar className="backPage-container notifications">
-                    <Notifications />
-                </Sidebar>
-                <Chat className=" backPage-container notifications" />
-            </div>
-            <div className="whiteboard">
-                <Container/>
+            <div className="whiteboard2">
+                <div className="notifications">
+                    <Chat className="notifications" />
+                </div>
+                <div className="whiteboard">
+                    <Container/>
+                </div>
             </div>
         </div>
     );

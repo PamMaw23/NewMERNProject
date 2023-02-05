@@ -6,7 +6,7 @@
     align-items: center;
 }
 body {
-    background-image: url(images/gatherly_one.jpg);
+    background-image: url(images/bk6.jpg);
     background-size: cover;
     /* height: fit-content; */
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@ body {
 }
 
 .input-container{
-    margin-right: 200px;
+    margin-right: 300px;
 }
 
 .viewProfile-image{
@@ -28,10 +28,8 @@ body {
 }
 
 .whiteboard{
-    /* margin-left:100px;
-    margin-right:100px; */
     height:500px;
-    width:600px;
+    width:800px;
 }
 
 .more{
@@ -58,20 +56,16 @@ body {
     border-radius: 12px;
 }
 
-/* .backPage-container{
-    background-color: rgb(3, 173, 173, 0.65);
-} */
-
 .meeting{
     margin-bottom: 8px;
-    background: rgb(3, 173, 173, 0.65);
-    font-family: inherit;
-    padding: 0.6em 1.3em;
+    background: rgb(148, 138, 74, 0.9) ;
+    font-family: Comic Sans MS;
+    padding: 0.6em;
     font-weight: 300;
     font-size: 20px;
-    border: 0.5px solid black;
+    border: 0.5px solid rgb(78, 62, 2);
+    /* border: 0.5px solid black; */
     border-radius: 30px;
-    /* box-shadow: 0.1em 0.1em; */
 }
 
 button:hover {
@@ -81,31 +75,31 @@ button:hover {
 
 button:active {
     transform: translate(0.05em, 0.05em);
-    box-shadow: 0.05em 0.05em;
-    /* padding-right: 1000px; */
+    box-shadow: 0.05em 0.07em;
     margin-right: 1px;
-    /* border: 2px solid white; */
-    /* text-decoration-color: white; */
     margin-top: 20px;
-    /* background-color: rgb(232, 148, 235); */
-    
 }
 
 .link{
     text-decoration: none;
 }
 
-.link
-
 .notifications{
     padding-top:40px;
-    width:1200px;
+    /* width:1200px; */
+    margin-bottom:20px;
 }
 
 .chat{
     background-color: white;
-    margin-left:180px;
-    width: 1150px;
+    width: 640px;
+    height:900px;
+    margin-left:118px;
+}
+
+.chat-name{
+    width:70px;
+    margin-left:5px;
 }
 
 .profile-pic{
@@ -114,15 +108,15 @@ button:active {
 
 .video{
     padding-left:60px;
+    margin-right:11px;
 }
 
 .videoBack{
-    background-color:paleturquoise;
     padding-top:30px;
 }
-.thisOne{
+/* .thisOne{
     width:2000px;
-}
+} */
 
 .vid-container{
     margin-left :150px;
@@ -138,23 +132,35 @@ button:active {
     font-weight: bold;
     color: #333;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 10px;
+    background-color:rgb(167, 152, 65, 0.6);
+    border-radius: 30px;
     }
 
 input {
     border-radius: 10px;
-    
     }
 
 .input2{
-    width:600px;
-    margin-left:30px;
+    width:300px;
+    margin-left:15px;
 }
 
 .send{
     border-radius: 10px;
     margin-left:20px;
+    background-color:rgb(167, 152, 65, 0.6);
     }
+
+.primary{
+    background-color:rgb(167, 152, 65, 0.6);
+}
+
+.sidebar{
+    margin-left:21px;
+    width: 1350px;
+}
+
 .side{
     margin-left: 80px;
 }
@@ -223,27 +229,22 @@ body .btn-outline-light{
     left: 5%;
     animation: bubble 2.5s ease-in 3s infinite;
 }
-
 .bub.g {
     left: 8%;
     animation: bubble 2.2s ease-in 2s infinite;
 }
-
 .bub.k {
     left: 7%;
     animation: bubble 1.6s ease-in 2s infinite;
 }
-
 .bub.i {
     left: 91%;
     animation: bubble2 1.8s ease-in 2.1s infinite;
 }
-
 .bub.j {
     left: 3%;
     animation: bubble 2s ease-in 1.5s infinite;
 }
-
 .bub.h {
     left: 1%;
     animation: bubble2 3s ease-in infinite;
@@ -286,11 +287,14 @@ body .btn-outline-light{
 .navbar{
     color: rgb(145, 99, 15);
     background-blend-mode: 0;
-    background-color:white;
-    /* padding-right:150px;
-    padding-left:150px; */
+    background-color:rgb(167, 152, 65, 0.6);
     padding-top:30px;
     padding-bottom:30px;
+}
+
+.back-logout{
+    background-color:rgb(167, 152, 65, 0.6);
+    color:rgb(167, 152, 65, 0.6);
 }
 
 .nav-bar{
@@ -307,9 +311,7 @@ body .btn-outline-light{
     font-family:Comic Sans MS;
     color: black;
     font-size: large;
-    /* text-decoration-color: rgb(255, 255, 255); */
     margin-right:50px;
-    /* margin-left:50px; */
 }
 
 .nav-signUp{
@@ -356,6 +358,10 @@ body .btn-outline-light{
 .home-image{
     width:600px;
     height:600px;
+    border-radius: 100%;
+    border-width: 45px;
+    border-color:  rgb(167, 152, 65, 0.2);
+    border-style:solid;
 }
 
 .chat-bubble-container {
@@ -370,18 +376,57 @@ body .btn-outline-light{
 }
 
 .chat-bubble {
-    background-color: #f1adf5;
+    background-color:rgb(167, 152, 65, 0.2);
     border-radius: 10px;
     padding: 10px;
-    position: relative;
+    /* position: relative; */
 }
 
+.heading{
+    font-family: 'Brush Script MT';
+    font-size: 150px;
+    font-weight: bolder;
+    color:rgb(36, 17, 33);
+}
 .chat-bubble::before {
     content: '';
     position: absolute;
     top: 10px;
     right: 100%;
     border-top: 10px solid transparent;
-    border-right: 10px solid #f1adf5;
+    border-right: 10px solid rgb(167, 152, 65, 0.2);;
     border-bottom: 10px solid transparent;
+}
+
+.back-logout {
+    display: inline-block;
+
+    font: normal normal 300 1.0em 'Open Sans';
+    text-decoration: none;
+
+    color: rgb(167, 152, 65,);
+    background-color: transparent;
+    border: 1px solid rgb(167, 152, 65, 0.7);
+    border-radius: 100px;
+
+    padding: .3em 1.2em;
+    margin: 5px;
+
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, rgb(167, 152, 65, 0.7) 50%);
+    transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.back-logout:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgb(167, 152, 65, 0.7);
+    background-position: -100% 100%;
+}
+
+.space{
+    margin-left:30px;
+}
+
+.whiteboard2{
+    display:flex;
 }

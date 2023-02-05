@@ -1,4 +1,4 @@
-import logoImage from "../images/logo.jpg";
+import logoImage from "../images/logo2.png";
 import {Link} from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
@@ -18,7 +18,7 @@ const Header = (props) => {
     return(
         <div>
             {/* <img className="logo" src={logoImage} alt="Logo" /> */}
-            <nav id="nav2" className="navbar navbar-expand-lg">
+            <nav className="navbar navbar-expand-lg">
 						<div className="nav-bar container-fluid">
 							<div className="navbar-brand d-flex" >
 								<div>
@@ -31,8 +31,8 @@ const Header = (props) => {
 										<Link className="link" to={"/login"}><li className="nav-signUp">Login</li></Link>
                                         <li className="nav-resources">Resources</li>
 									</ul>
-									<Link className="link" to={"/"}><button className=" back btn btn-outline-info" >Back</button></Link>
-									<button className="btn btn-outline-info" onClick={logoutHandler}>Logout</button>
+									<Link className="link" to={"/"}><button className="space back-logout" >Back</button></Link>
+									<button className="space back-logout" onClick={logoutHandler}>Logout</button>
 								</div>
 						</div>
 					</div>

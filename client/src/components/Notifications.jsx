@@ -14,7 +14,6 @@ const Notifications = () => {
                 <Button variant="contained" color="primary" onClick={answerCall}>
                 Answer
                 </Button>
-                <button> Answer</button>
             </div>
         )}
     </div>
